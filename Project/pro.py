@@ -71,3 +71,19 @@ def scale_points_individual(points, scale_x, scale_y, scale_z):
         scaled_points.append(scaled_point)
 
     return scaled_points
+
+
+
+
+def apply_3d_shear(vertices, sh_xy=0.0, sh_xz=0.0, sh_yx=0.0, sh_yz=0.0, sh_zx=0.0, sh_zy=0.0):
+    sheared_vertices = []  # قائمة لتخزين الرؤوس المشوهة
+    for x, y, z in vertices:  # التكرار عبر جميع الرؤوس
+        new_x = x + sh_yx * y + sh_zx * z  # حساب الإحداثي X بعد التشويه
+        new_y = y + sh_xy * x + sh_zy * z  # حساب الإحداثي Y بعد التشويه
+        new_z = z + sh_xz * x + sh_yz * y  # حساب الإحداثي Z بعد التشويه
+        sheared_vertices.append([new_x, new_y, new_z])  # إضافة الرأس الجديد إلى القائمة
+    return sheared_vertices  # إعادة الرؤوس المشوهة
+
+
+
+
