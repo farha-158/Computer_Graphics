@@ -1,27 +1,24 @@
 # دالة لإنشاء مصفوفة دوران
-def rotation_matrix(angle, axis, clockwise_positive=True):
+def rotation_matrix(angle, axis):
     theta = math.radians(angle)  # تحويل الزاوية من درجات إلى راديان
     c = math.cos(theta)  # حساب جيب تمام الزاوية
     s = math.sin(theta)  # حساب جيب الزاوية
 
-    s_pos = s if clockwise_positive else -s  # تحديد اتجاه الدوران الموجب
-    s_neg = -s if clockwise_positive else s
-
     matrix = identity_matrix()  # إنشاء مصفوفة وحدة كأساس
     if axis == 'x':  # إذا كان الدوران حول المحور X
         matrix[1][1] = c
-        matrix[1][2] = s_pos
-        matrix[2][1] = s_neg
+        matrix[1][2] = -s
+        matrix[2][1] = s
         matrix[2][2] = c
     elif axis == 'y':  # إذا كان الدوران حول المحور Y
         matrix[0][0] = c
-        matrix[0][2] = s_neg
-        matrix[2][0] = s_pos
+        matrix[0][2] = s
+        matrix[2][0] = -s
         matrix[2][2] = c
     elif axis == 'z':  # إذا كان الدوران حول المحور Z
         matrix[0][0] = c
-        matrix[0][1] = s_pos
-        matrix[1][0] = s_neg
+        matrix[0][1] = -s
+        matrix[1][0] = s
         matrix[1][1] = c
 
     return matrix  # إعادة مصفوفة الدوران
