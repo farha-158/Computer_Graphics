@@ -1,4 +1,19 @@
+def reflection(translation, reflection_axis=None):
+    transformation_matrix = identity_matrix()  
 
+    transformation_matrix = custom_translate(transformation_matrix, translation)
+
+    if reflection_axis:
+        reflection_matrix = identity_matrix()
+        if reflection_axis == "x":
+            reflection_matrix[0][0] = -1  # انعكاس حول المحور X
+        elif reflection_axis == "y":
+            reflection_matrix[1][1] = -1  # انعكاس حول المحور Y
+        elif reflection_axis == "z":
+            reflection_matrix[2][2] = -1  # انعكاس حول المحور Z
+        transformation_matrix = np.dot(transformation_matrix, reflection_matrix)  
+
+    return transformation_matrix
 
 # دالة لتكبير أو تصغير النقاط بنفس ال scale
 def scale_points(points, scale_factor):
