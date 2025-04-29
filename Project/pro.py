@@ -50,8 +50,8 @@ def rotation_matrix(angle, axis):
         matrix[2][2] = cos
     elif axis == 'y':  # إذا كان الدوران حول المحور Y
         matrix[0][0] = cos
-        matrix[0][2] = sin
-        matrix[2][0] = -sin
+        matrix[0][2] = -sin
+        matrix[2][0] = sin
         matrix[2][2] = cos
     elif axis == 'z':  # إذا كان الدوران حول المحور Z
         matrix[0][0] = cos
