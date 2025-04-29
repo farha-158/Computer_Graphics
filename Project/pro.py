@@ -223,19 +223,38 @@ def main():
         if keys[pygame.K_e]:  # إذا تم الضغط على زر "E"
             translation[2] -= 0.1  # تحريك الكائن للخلف (على المحور Z)
 
-        # التحكم في التشويه
-        if keys[pygame.K_r]:  # إذا تم الضغط على زر "R"
-            shear_values['xy'] += 0.01  # زيادة التشويه على المحور XY
-        if keys[pygame.K_f]:  # إذا تم الضغط على زر "F"
-            shear_values['xy'] -= 0.01  # تقليل التشويه على المحور XY
-        if keys[pygame.K_t]:  # إذا تم الضغط على زر "T"
-            shear_values['xz'] += 0.01  # زيادة التشويه على المحور XZ
-        if keys[pygame.K_g]:  # إذا تم الضغط على زر "G"
-            shear_values['xz'] -= 0.01  # تقليل التشويه على المحور XZ
-        if keys[pygame.K_y]:  # إذا تم الضغط على زر "Y"
-            shear_values['yz'] += 0.01  # زيادة التشويه على المحور YZ
-        if keys[pygame.K_h]:  # إذا تم الضغط على زر "H"
-            shear_values['yz'] -= 0.01  # تقليل التشويه على المحور YZ
+        # التحكم بالتشويه
+            # XY
+        if keys[pygame.K_r]:
+            shear_values['xy'] += 0.01
+        if keys[pygame.K_f]:
+            shear_values['xy'] -= 0.01
+            # XZ
+        if keys[pygame.K_t]:
+            shear_values['xz'] += 0.01
+        if keys[pygame.K_g]:
+            shear_values['xz'] -= 0.01
+            # YZ
+        if keys[pygame.K_y]:
+            shear_values['yz'] += 0.01
+        if keys[pygame.K_h]:
+            shear_values['yz'] -= 0.01
+            # YX
+        if keys[pygame.K_m]:
+            shear_values['yx'] += 0.01
+        if keys[pygame.K_n]:
+            shear_values['yx'] -= 0.01
+            # ZX
+        if keys[pygame.K_b]:
+            shear_values['zx'] += 0.01
+        if keys[pygame.K_v]:
+            shear_values['zx'] -= 0.01
+            # ZY
+        if keys[pygame.K_o]:
+            shear_values['zy'] += 0.01
+        if keys[pygame.K_l]:
+            shear_values['zy'] -= 0.01
+
 
 
         # التحكم في الانعكاس
